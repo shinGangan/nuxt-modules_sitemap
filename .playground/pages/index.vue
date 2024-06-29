@@ -11,10 +11,10 @@ definePageMeta({
 
 <template>
   <div>
-    <h1 class="text-2xl mt-10 mb-5">
+    <h1 class="mb-5 mt-10 text-2xl">
       Sitemap
     </h1>
-    <div class="grid grid-cols-2 gap-5 max-w-[900px] mx-auto">
+    <div class="mx-auto grid max-w-[900px] grid-cols-2 gap-5">
       <NuxtLink to="/ignore-foo">
         ignore-foo
       </NuxtLink>

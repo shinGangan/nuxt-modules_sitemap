@@ -58,7 +58,7 @@ const userSources = computed(() => (data.value?.globalSources || []).filter(s =>
   <div class="relative n-bg-base flex flex-col">
     <header class="sticky top-0 z-2 px-4 pt-4">
       <div
-        class="flex justify-between items-start"
+        class="flex items-start justify-between"
         mb2
       >
         <div class="flex space-x-5">
@@ -220,8 +220,8 @@ const userSources = computed(() => (data.value?.globalSources || []).filter(s =>
             </template>
           </VTooltip>
         </div>
-        <div class="items-center space-x-3 hidden lg:flex">
-          <div class="opacity-80 text-sm">
+        <div class="hidden items-center space-x-3 lg:flex">
+          <div class="text-sm opacity-80">
             <NLink
               href="https://github.com/sponsors/harlan-zw"
               target="_blank"
@@ -233,7 +233,7 @@ const userSources = computed(() => (data.value?.globalSources || []).filter(s =>
               Sponsor
             </NLink>
           </div>
-          <div class="opacity-80 text-sm">
+          <div class="text-sm opacity-80">
             <NLink
               href="https://github.com/nuxt-modules/sitemap"
               target="_blank"
@@ -256,7 +256,7 @@ const userSources = computed(() => (data.value?.globalSources || []).filter(s =>
       </div>
     </header>
     <div
-      class="flex-row flex p4 h-full"
+      class="flex h-full flex-row p-4"
       style="min-height: calc(100vh - 64px);"
     >
       <main class="mx-auto flex flex-col w-full bg-white dark:bg-black dark:bg-dark-700 bg-light-200 ">
@@ -267,7 +267,7 @@ const userSources = computed(() => (data.value?.globalSources || []).filter(s =>
             class="space-y-5"
           >
             <div>
-              <h2 class="text-lg mb-1">
+              <h2 class="mb-1 text-lg">
                 Sitemaps
               </h2>
               <p
@@ -282,7 +282,7 @@ const userSources = computed(() => (data.value?.globalSources || []).filter(s =>
               :key="key"
             >
               <template #text>
-                <h3 class="opacity-80 text-base mb-1">
+                <h3 class="mb-1 text-base opacity-80">
                   {{ sitemap.sitemapName }}
                   <NIcon
                     v-if="(sitemap.sources || []).some(s => !!s.error)"
@@ -299,10 +299,10 @@ const userSources = computed(() => (data.value?.globalSources || []).filter(s =>
                   {{ resolveSitemapUrl(sitemap.sitemapName) }}
                 </NLink>
               </template>
-              <div class="px-3 py-2 space-y-5">
+              <div class="space-y-5 px-3 py-2">
                 <template v-if="sitemap.sitemapName === 'index'">
                   <div>
-                    <div class="text-sm mb-1 opacity-80">
+                    <div class="mb-1 text-sm opacity-80">
                       This is a special sitemap file that links to your other sitemaps.
                     </div>
                     <div class="text-sm opacity-70">
@@ -322,14 +322,14 @@ const userSources = computed(() => (data.value?.globalSources || []).filter(s =>
                     class="flex space-x-5"
                   >
                     <div class="w-40">
-                      <div class="font-bold text-sm mb-1">
+                      <div class="mb-1 text-sm font-bold">
                         Sources
                       </div>
-                      <div class="opacity-40 text-xs max-w-60">
+                      <div class="max-w-60 text-xs opacity-40">
                         Local sources associated with just this sitemap.<br>Example: Load in a dynamic list of URLs from an API endpoint.
                       </div>
                     </div>
-                    <div class="flex-grow">
+                    <div class="grow">
                       <Source
                         v-for="(source, k) in sitemap.sources"
                         :key="k"
@@ -339,21 +339,21 @@ const userSources = computed(() => (data.value?.globalSources || []).filter(s =>
                   </div>
                   <div class="flex space-x-5">
                     <div class="w-40">
-                      <div class="font-bold text-sm mb-1">
+                      <div class="mb-1 text-sm font-bold">
                         App Sources
                       </div>
-                      <div class="opacity-40 text-xs max-w-60">
+                      <div class="max-w-60 text-xs opacity-40">
                         Configured with the <code>includeAppSources</code> option.
                       </div>
                     </div>
-                    <div class="flex-grow flex flex-col justify-center">
+                    <div class="flex grow flex-col justify-center">
                       <div
                         v-if="sitemap.includeAppSources && appSourcesExcluded !== true"
                         class="opacity-70"
                       >
                         <NIcon
                           icon="carbon:checkmark"
-                          class="text-green-500 text-lg"
+                          class="text-lg text-green-500"
                         />
                         Enabled
                       </div>
@@ -363,11 +363,11 @@ const userSources = computed(() => (data.value?.globalSources || []).filter(s =>
                       >
                         <NIcon
                           icon="carbon:close"
-                          class="text-red-500 text-lg"
+                          class="text-lg text-red-500"
                         />
                         Disabled
                       </div>
-                      <div class="opacity-50 text-xs mt-2">
+                      <div class="mt-2 text-xs opacity-50">
                         Switch to <NLink
                           underline
                           class="cursor-pointer"
@@ -380,14 +380,14 @@ const userSources = computed(() => (data.value?.globalSources || []).filter(s =>
                   </div>
                   <div class="flex space-x-5">
                     <div class="w-40">
-                      <div class="font-bold text-sm mb-1">
+                      <div class="mb-1 text-sm font-bold">
                         Sitemap Options
                       </div>
-                      <div class="opacity-40 text-xs max-w-60">
+                      <div class="max-w-60 text-xs opacity-40">
                         Extra options used to filter the URLs on the final sitemap and set defaults.
                       </div>
                     </div>
-                    <div class="n-bg-base/20 flex-grow">
+                    <div class="n-bg-base/20 grow">
                       <OCodeBlock
                         class="max-h-[350px] min-h-full overflow-y-auto"
                         :code="JSON.stringify(resolveSitemapOptions(sitemap), null, 2)"
@@ -404,7 +404,7 @@ const userSources = computed(() => (data.value?.globalSources || []).filter(s =>
             class="space-y-5"
           >
             <div>
-              <h2 class="text-lg mb-1">
+              <h2 class="mb-1 text-lg">
                 App Sources
               </h2>
               <p
@@ -425,7 +425,7 @@ const userSources = computed(() => (data.value?.globalSources || []).filter(s =>
             class="space-y-5"
           >
             <div>
-              <h2 class="text-lg mb-1">
+              <h2 class="mb-1 text-lg">
                 User Sources
               </h2>
               <p
@@ -447,7 +447,7 @@ const userSources = computed(() => (data.value?.globalSources || []).filter(s =>
           >
             <OSectionBlock>
               <template #text>
-                <h3 class="opacity-80 text-base mb-1">
+                <h3 class="mb-1 text-base opacity-80">
                   <NIcon
                     icon="carbon:settings"
                     class="mr-1"
@@ -455,7 +455,7 @@ const userSources = computed(() => (data.value?.globalSources || []).filter(s =>
                   Runtime Config
                 </h3>
               </template>
-              <div class="px-3 py-2 space-y-5">
+              <div class="space-y-5 px-3 py-2">
                 <pre
                   of-auto
                   h-full
@@ -472,7 +472,7 @@ const userSources = computed(() => (data.value?.globalSources || []).filter(s =>
           >
             <iframe
               src="https://nuxtseo.com/sitemap"
-              class="w-full h-full border-none"
+              class="size-full border-none"
               style="min-height: calc(100vh - 100px);"
             />
           </div>

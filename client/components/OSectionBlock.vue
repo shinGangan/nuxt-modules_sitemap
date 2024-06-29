@@ -32,7 +32,7 @@ function onToggle(e: any) {
     @toggle="onToggle"
   >
     <summary
-      class="cursor-pointer select-none n-bg-active hover:bg-active p4 rounded transition-all"
+      class="n-bg-active hover:bg-active cursor-pointer select-none rounded p-4 transition-all"
       :class="collapse ? '' : 'pointer-events-none'"
     >
       <NIconTitle
@@ -80,7 +80,7 @@ function onToggle(e: any) {
       <slot name="details" />
       <div
         :class="containerClass"
-        class="mt1"
+        class="mt-1"
       >
         <slot />
       </div>

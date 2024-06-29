@@ -23,18 +23,18 @@ function normaliseTip(tip: string) {
   <OSectionBlock>
     <template #text>
       <div class="flex space-x-5">
-        <h3 class="opacity-80 text-base mb-1 flex space-x-3 items-center">
+        <h3 class="mb-1 flex items-center space-x-3 text-base opacity-80">
           <div
             v-if="source.fetch"
             class="flex space-x-2"
           >
             <NIcon
               icon="carbon:api-1"
-              class="opacity-50 text-lg"
+              class="text-lg opacity-50"
             />
             <div
               v-if="source.timeTakenMs"
-              class="opacity-60 text-sm"
+              class="text-sm opacity-60"
             >
               {{ source.timeTakenMs }}ms
             </div>
@@ -60,7 +60,7 @@ function normaliseTip(tip: string) {
         </div>
         <div
           v-if="source.context.description"
-          class="text-xs mt-1 opacity-70"
+          class="mt-1 text-xs opacity-70"
         >
           {{ source.context.description }}
         </div>
@@ -80,16 +80,16 @@ function normaliseTip(tip: string) {
     />
     <div
       v-if="source.context.tips?.length"
-      class="px-3 py-3 mt-2 dark:bg-gray-900/50 bg-gray-50/50 opacity-70"
+      class="mt-2 bg-gray-50/50 p-3 opacity-70 dark:bg-gray-900/50"
     >
-      <h3 class="text-sm font-bold mb-1">
+      <h3 class="mb-1 text-sm font-bold">
         Hints
       </h3>
-      <ul class="list-disc ml-5">
+      <ul class="ml-5 list-disc">
         <li
           v-for="(tip, key) in source.context.tips"
           :key="key"
-          class="text-sm opacity-80 mb-1"
+          class="mb-1 text-sm opacity-80"
           v-html="normaliseTip(tip)"
         />
       </ul>

@@ -1,6 +1,7 @@
 // @ts-check
 import { createConfigForNuxt } from '@nuxt/eslint-config/flat'
 import pluginNode from 'eslint-plugin-n'
+import pluginTailwindCss from 'eslint-plugin-tailwindcss'
 
 export default createConfigForNuxt({
   features: {
@@ -49,3 +50,4 @@ export default createConfigForNuxt({
       'node/process-exit-as-throw': 'error',
     },
   })
+  .append(...pluginTailwindCss.configs['flat/recommended'])
